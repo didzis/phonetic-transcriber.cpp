@@ -1,3 +1,6 @@
 [submodule "utfcpp"]
 	path = utfcpp
 	url = ./utfcpp
+[submodule "python"]
+	path = python
+	url = https://github.com/didzis/phonetic-transcriber.git
