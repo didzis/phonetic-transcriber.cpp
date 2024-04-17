@@ -2,15 +2,16 @@
 #include <string>
 #include <map>
 
-static std::map<std::string, std::map<std::string, std::string>> data = {
-	{"AlphaNumericCharacterConverter_fromIPAafter", {
-		{"ˀ", "02C0"}, {"ˑ", "02D1"}, {"̆", "0306"}, {"̩", "0329"}, {"̯", "032F"},
-	}},
-	{"AlphaNumericCharacterConverter_fromIPAbefore", {
-		{"ˈ", "02C8"}, {"ˌ", "02CC"},
-	}},
-	{"AlphaNumericCharacterConverter_fromIPAresult", {
-		{"b", "b"}, {"bː", "b02D0"}, {"c", "c"}, {"cː", "c02D0"}, {"d", "d"}, {"dː", "d02D0"}, {"e", "e"}, {"eː", "e02D0"},
+const std::map<std::string, std::string>& getCharsetMap(const std::string& name) {
+	static std::map<std::string, std::map<std::string, std::string>> data = {
+		{"AlphaNumericCharacterConverter_fromIPAafter", {
+			{"ˀ", "02C0"}, {"ˑ", "02D1"}, {"̆", "0306"}, {"̩", "0329"}, {"̯", "032F"},
+		}},
+		{"AlphaNumericCharacterConverter_fromIPAbefore", {
+			{"ˈ", "02C8"}, {"ˌ", "02CC"},
+		}},
+		{"AlphaNumericCharacterConverter_fromIPAresult", {
+			{"b", "b"}, {"bː", "b02D0"}, {"c", "c"}, {"cː", "c02D0"}, {"d", "d"}, {"dː", "d02D0"}, {"e", "e"}, {"eː", "e02D0"},
 		{"e͜i", "e035Ci"}, {"e͜u", "eu"}, {"f", "f"}, {"fː", "f02D0"}, {"i", "i"}, {"iː", "i02D0"}, {"i͜e", "i035Ce"}, {"i͜u", "i035Cu"},
 		{"k", "k"}, {"kː", "k02D0"}, {"l", "l"}, {"lː", "l02D0"}, {"m", "m"}, {"mː", "m02D0"}, {"n", "n"}, {"nː", "n02D0"},
 		{"o", "0254"}, {"oː", "025402D0"}, {"o͜i", "0254035Ci"}, {"o͜u", "o035Cu"}, {"p", "p"}, {"pː", "p02D0"}, {"r", "r"}, {"rː", "r02D0"},
@@ -20,15 +21,15 @@ static std::map<std::string, std::map<std::string, std::string>> data = {
 		{"ɔ͜i", "0254035Ci"}, {"ɔ͜u", "o035Cu"}, {"ɟ", "025F"}, {"ɟː", "025F02D0"}, {"ɡ", "g"}, {"ɡː", "ɡ02D0"}, {"ɲ", "0272"}, {"ɲː", "027202D0"},
 		{"ʃ", "0283"}, {"ʃː", "028302D0"}, {"ʎ", "028E"}, {"ʎː", "028E02D0"}, {"ʓ", "0293"}, {"ʓː", "029302D0"}, {"ʝ", "029D"}, {"ʝː", "029D02D0"},
 		{"ʣ", "02A3"}, {"ʣː", "02A302D0"}, {"ʤ", "02A4"}, {"ʤː", "02A402D0"}, {"ʦ", "02A6"}, {"ʦː", "02A602D0"}, {"ʧ", "02A7"}, {"ʧː", "02A702D0"},
-	}},
-	{"AlphaNumericCharacterConverter_toIPAafter", {
-		{"02C0", "ˀ"}, {"02D1", "ˑ"}, {"0306", "̆"}, {"0329", "̩"}, {"032F", "̯"},
-	}},
-	{"AlphaNumericCharacterConverter_toIPAbefore", {
-		{"02C8", "ˈ"}, {"02CC", "ˌ"},
-	}},
-	{"AlphaNumericCharacterConverter_toIPAresult", {
-		{"", ""}, {"00E6", "æ"}, {"00E602D0", "æː"}, {"0148", "ň"}, {"014802D0", "ňː"}, {"0251", "ɑ"}, {"025102D0", "ɑː"}, {"0251035Ci", "ɑ͜i"},
+		}},
+		{"AlphaNumericCharacterConverter_toIPAafter", {
+			{"02C0", "ˀ"}, {"02D1", "ˑ"}, {"0306", "̆"}, {"0329", "̩"}, {"032F", "̯"},
+		}},
+		{"AlphaNumericCharacterConverter_toIPAbefore", {
+			{"02C8", "ˈ"}, {"02CC", "ˌ"},
+		}},
+		{"AlphaNumericCharacterConverter_toIPAresult", {
+			{"", ""}, {"00E6", "æ"}, {"00E602D0", "æː"}, {"0148", "ň"}, {"014802D0", "ňː"}, {"0251", "ɑ"}, {"025102D0", "ɑː"}, {"0251035Ci", "ɑ͜i"},
 		{"0251035Cu", "ɑ͜u"}, {"0254", "o"}, {"025402D0", "oː"}, {"0254035Ci", "o͜i"}, {"025F", "ɟ"}, {"025F02D0", "ɟː"}, {"0272", "ɲ"}, {"027202D0", "ɲː"},
 		{"0283", "ʃ"}, {"028302D0", "ʃː"}, {"028E", "ʎ"}, {"028E02D0", "ʎː"}, {"0293", "ʓ"}, {"029302D0", "ʓː"}, {"029D", "ʝ"}, {"029D02D0", "ʝː"},
 		{"02A3", "ʣ"}, {"02A302D0", "ʣː"}, {"02A4", "ʤ"}, {"02A402D0", "ʤː"}, {"02A6", "ʦ"}, {"02A602D0", "ʦː"}, {"02A7", "ʧ"}, {"02A702D0", "ʧː"},
@@ -38,15 +39,15 @@ static std::map<std::string, std::map<std::string, std::string>> data = {
 		{"n", "n"}, {"n02D0", "nː"}, {"o035Cu", "o͜u"}, {"p", "p"}, {"p02D0", "pː"}, {"r", "r"}, {"r02D0", "rː"}, {"s", "s"},
 		{"s02D0", "sː"}, {"t", "t"}, {"t02D0", "tː"}, {"u", "u"}, {"u02D0", "uː"}, {"u035Co", "u͜o"}, {"ui", "u͜i"}, {"v", "v"},
 		{"v02D0", "vː"}, {"x", "x"}, {"x02D0", "xː"}, {"z", "z"}, {"z02D0", "zː"}, {"ɡ02D0", "ɡː"},
-	}},
-	{"AlphaNumericSimplifiedCharacterConverter_fromIPAafter", {
-		{"ˀ", "02C0"}, {"ˑ", "02D1"}, {"̆", "0306"}, {"̩", "0329"}, {"̯", "032F"},
-	}},
-	{"AlphaNumericSimplifiedCharacterConverter_fromIPAbefore", {
-		{"ˈ", "02C8"}, {"ˌ", "02CC"},
-	}},
-	{"AlphaNumericSimplifiedCharacterConverter_fromIPAresult", {
-		{"b", "b"}, {"bː", "b"}, {"c", "c"}, {"cː", "c"}, {"d", "d"}, {"dː", "d"}, {"e", "e"}, {"eː", "e02D0"},
+		}},
+		{"AlphaNumericSimplifiedCharacterConverter_fromIPAafter", {
+			{"ˀ", "02C0"}, {"ˑ", "02D1"}, {"̆", "0306"}, {"̩", "0329"}, {"̯", "032F"},
+		}},
+		{"AlphaNumericSimplifiedCharacterConverter_fromIPAbefore", {
+			{"ˈ", "02C8"}, {"ˌ", "02CC"},
+		}},
+		{"AlphaNumericSimplifiedCharacterConverter_fromIPAresult", {
+			{"b", "b"}, {"bː", "b"}, {"c", "c"}, {"cː", "c"}, {"d", "d"}, {"dː", "d"}, {"e", "e"}, {"eː", "e02D0"},
 		{"e͜i", "e035Ci"}, {"e͜u", "eu"}, {"f", "f"}, {"fː", "f"}, {"i", "i"}, {"iː", "i02D0"}, {"i͜e", "i035Ce"}, {"i͜u", "i035Cu"},
 		{"k", "k"}, {"kː", "k"}, {"l", "l"}, {"lː", "l"}, {"m", "m"}, {"mː", "m"}, {"n", "n"}, {"nː", "n"},
 		{"o", "0254"}, {"oː", "025402D0"}, {"o͜i", "0254035Ci"}, {"o͜u", "o035Cu"}, {"p", "p"}, {"pː", "p"}, {"r", "r"}, {"rː", "r"},
@@ -56,15 +57,15 @@ static std::map<std::string, std::map<std::string, std::string>> data = {
 		{"ɔ͜i", "0254035Ci"}, {"ɔ͜u", "o035Cu"}, {"ɟ", "025F"}, {"ɟː", "025F"}, {"ɡ", "g"}, {"ɡː", "ɡ02D0"}, {"ɲ", "0272"}, {"ɲː", "0272"},
 		{"ʃ", "0283"}, {"ʃː", "0283"}, {"ʎ", "028E"}, {"ʎː", "028E"}, {"ʓ", "0293"}, {"ʓː", "0293"}, {"ʝ", "029D"}, {"ʝː", "029D"},
 		{"ʣ", "02A3"}, {"ʣː", "02A3"}, {"ʤ", "02A4"}, {"ʤː", "02A4"}, {"ʦ", "02A6"}, {"ʦː", "02A6"}, {"ʧ", "02A7"}, {"ʧː", "02A7"},
-	}},
-	{"AlphabeticCharacterConverter_fromIPAafter", {
-		{"ˀ", "q"}, {"ˑ", "\\"}, {"̆", "x"}, {"̩", "+"}, {"̯", "^"},
-	}},
-	{"AlphabeticCharacterConverter_fromIPAbefore", {
-		{"ˈ", "\""}, {"ˌ", "%"},
-	}},
-	{"AlphabeticCharacterConverter_fromIPAresult", {
-		{"'", "'"}, {".", "-"}, {"b", "b"}, {"bː", "bb"}, {"c", "K"}, {"cː", "KK"}, {"d", "d"}, {"dː", "dd"},
+		}},
+		{"AlphabeticCharacterConverter_fromIPAafter", {
+			{"ˀ", "q"}, {"ˑ", "\\"}, {"̆", "x"}, {"̩", "+"}, {"̯", "^"},
+		}},
+		{"AlphabeticCharacterConverter_fromIPAbefore", {
+			{"ˈ", "\""}, {"ˌ", "%"},
+		}},
+		{"AlphabeticCharacterConverter_fromIPAresult", {
+			{"'", "'"}, {".", "-"}, {"b", "b"}, {"bː", "bb"}, {"c", "K"}, {"cː", "KK"}, {"d", "d"}, {"dː", "dd"},
 		{"e", "e"}, {"eː", "ee"}, {"e͜i", "ei"}, {"e͜u", "eu"}, {"f", "f"}, {"fː", "ff"}, {"i", "i"}, {"iː", "ii"},
 		{"i͜e", "ie"}, {"i͜u", "iu"}, {"k", "k"}, {"kː", "kk"}, {"l", "l"}, {"lː", "ll"}, {"m", "m"}, {"mː", "mm"},
 		{"n", "n"}, {"nː", "nn"}, {"o", "o"}, {"oː", "oo"}, {"o͜i", "oi"}, {"o͜u", "ou"}, {"p", "p"}, {"pː", "pp"},
@@ -75,15 +76,15 @@ static std::map<std::string, std::map<std::string, std::string>> data = {
 		{"ɲ", "J"}, {"ɲː", "JJ"}, {"ʃ", "S"}, {"ʃː", "SS"}, {"ʎ", "L"}, {"ʎː", "LL"}, {"ʓ", "Z"}, {"ʓː", "ZZ"},
 		{"ʝ", "j"}, {"ʝː", "jj"}, {"ʣ", "dz"}, {"ʣː", "dzdz"}, {"ʤ", "dZ"}, {"ʤː", "dZdZ"}, {"ʦ", "ts"}, {"ʦː", "tsts"},
 		{"ʧ", "tS"}, {"ʧː", "tStS"},
-	}},
-	{"AlphabeticCharacterConverter_toIPAafter", {
-		{"+", "̩"}, {"=", "ː"}, {"\\", "ˑ"}, {"^", "̯"}, {"q", "ˀ"}, {"x", "̆"},
-	}},
-	{"AlphabeticCharacterConverter_toIPAbefore", {
-		{"\"", "ˈ"}, {"%", "ˌ"}, {"”", "ˈ"},
-	}},
-	{"AlphabeticCharacterConverter_toIPAresult", {
-		{"'", "'"}, {"-", "."}, {".", "."}, {"E", "æ"}, {"EE", "æː"}, {"G", "ɟ"}, {"GG", "ɟː"}, {"J", "ɲ"},
+		}},
+		{"AlphabeticCharacterConverter_toIPAafter", {
+			{"+", "̩"}, {"=", "ː"}, {"\\", "ˑ"}, {"^", "̯"}, {"q", "ˀ"}, {"x", "̆"},
+		}},
+		{"AlphabeticCharacterConverter_toIPAbefore", {
+			{"\"", "ˈ"}, {"%", "ˌ"}, {"”", "ˈ"},
+		}},
+		{"AlphabeticCharacterConverter_toIPAresult", {
+			{"'", "'"}, {"-", "."}, {".", "."}, {"E", "æ"}, {"EE", "æː"}, {"G", "ɟ"}, {"GG", "ɟː"}, {"J", "ɲ"},
 		{"JJ", "ɲː"}, {"K", "c"}, {"KK", "cː"}, {"L", "ʎ"}, {"LL", "ʎː"}, {"N", "ň"}, {"NN", "ňː"}, {"S", "ʃ"},
 		{"SS", "ʃː"}, {"Z", "ʓ"}, {"ZZ", "ʓː"}, {"a", "ɑ"}, {"aa", "ɑː"}, {"ai", "ɑ͜i"}, {"au", "ɑ͜u"}, {"b", "b"},
 		{"bb", "bː"}, {"d", "d"}, {"dZ", "ʤ"}, {"dZdZ", "ʤː"}, {"dd", "dː"}, {"dz", "ʣ"}, {"dzdz", "ʣː"}, {"e", "e"},
@@ -93,25 +94,25 @@ static std::map<std::string, std::map<std::string, std::string>> data = {
 		{"ou", "ɔ͜u"}, {"p", "p"}, {"pp", "pː"}, {"r", "r"}, {"rr", "rː"}, {"s", "s"}, {"ss", "sː"}, {"t", "t"},
 		{"tS", "ʧ"}, {"tStS", "ʧː"}, {"ts", "ʦ"}, {"tsts", "ʦː"}, {"tt", "tː"}, {"u", "u"}, {"ui", "u͜i"}, {"uo", "u͜o"},
 		{"uu", "uː"}, {"v", "v"}, {"vv", "vː"}, {"x", "x"}, {"xx", "xː"}, {"z", "z"}, {"zz", "zː"},
-	}},
-	{"IPACharacterConverter_charsets", {
-		{"charset0", "ˌˈ"},
-		{"charset1", "oieɑæuɔbdfɡɟxʝkclʎmnɲňprsʃtvzʓʣʤʦʧ"},
-		{"charset2", "͜"},
-	}},
-	{"IPASimplifiedCharacterConverter_charsets", {
-		{"charset0", "ˌˈ"},
-		{"charset1", "oieɑæuɔbdfɡɟxʝkclʎmnɲňprsʃtvzʓʣʤʦʧ"},
-		{"charset2", "͜"},
-	}},
-	{"IPASimplifiedCharacterConverter_fromIPAafter", {
-		{"ˀ", "02C0"}, {"ˑ", "02D1"}, {"̆", "0306"}, {"̩", "0329"}, {"̯", "032F"},
-	}},
-	{"IPASimplifiedCharacterConverter_fromIPAbefore", {
-		{"ˈ", "02C8"}, {"ˌ", "02CC"},
-	}},
-	{"IPASimplifiedCharacterConverter_fromIPAresult", {
-		{"b", "b"}, {"bː", "b"}, {"c", "c"}, {"cː", "c"}, {"d", "d"}, {"dː", "d"}, {"e", "e"}, {"eː", "eː"},
+		}},
+		{"IPACharacterConverter_charsets", {
+			{"charset0", "ˌˈ"},
+			{"charset1", "oieɑæuɔbdfɡɟxʝkclʎmnɲňprsʃtvzʓʣʤʦʧ"},
+			{"charset2", "͜"},
+		}},
+		{"IPASimplifiedCharacterConverter_charsets", {
+			{"charset0", "ˌˈ"},
+			{"charset1", "oieɑæuɔbdfɡɟxʝkclʎmnɲňprsʃtvzʓʣʤʦʧ"},
+			{"charset2", "͜"},
+		}},
+		{"IPASimplifiedCharacterConverter_fromIPAafter", {
+			{"ˀ", "02C0"}, {"ˑ", "02D1"}, {"̆", "0306"}, {"̩", "0329"}, {"̯", "032F"},
+		}},
+		{"IPASimplifiedCharacterConverter_fromIPAbefore", {
+			{"ˈ", "02C8"}, {"ˌ", "02CC"},
+		}},
+		{"IPASimplifiedCharacterConverter_fromIPAresult", {
+			{"b", "b"}, {"bː", "b"}, {"c", "c"}, {"cː", "c"}, {"d", "d"}, {"dː", "d"}, {"e", "e"}, {"eː", "eː"},
 		{"e͜i", "e͜i"}, {"e͜u", "e͜u"}, {"f", "f"}, {"fː", "f"}, {"i", "i"}, {"iː", "iː"}, {"i͜e", "i͜e"}, {"i͜u", "i͜u"},
 		{"k", "k"}, {"kː", "k"}, {"l", "l"}, {"lː", "l l"}, {"m", "m"}, {"mː", "m m"}, {"n", "n"}, {"nː", "n n"},
 		{"o", "o"}, {"oː", "oː"}, {"o͜i", "o͜i"}, {"o͜u", "o͜u"}, {"p", "p"}, {"pː", "p"}, {"r", "r"}, {"rː", "r"},
@@ -121,7 +122,7 @@ static std::map<std::string, std::map<std::string, std::string>> data = {
 		{"ɔ͜i", "o͜i"}, {"ɔ͜u", "o͜u"}, {"ɟ", "ɟ"}, {"ɟː", "ɟ"}, {"ɡ", "g"}, {"ɡː", "g"}, {"ɲ", "ɲ"}, {"ɲː", "ɲ ɲ"},
 		{"ʃ", "ʃ"}, {"ʃː", "ʃ"}, {"ʎ", "ʎ"}, {"ʎː", "ʎ ʎ"}, {"ʓ", "ʓ"}, {"ʓː", "ʓ"}, {"ʝ", "ʝ"}, {"ʝː", "ʝ"},
 		{"ʣ", "ʣ"}, {"ʣː", "ʣ"}, {"ʤ", "ʤ"}, {"ʤː", "ʤ"}, {"ʦ", "ʦ"}, {"ʦː", "ʦ"}, {"ʧ", "ʧ"}, {"ʧː", "ʧ"},
-	}},
-};
-
-const std::map<std::string, std::string>& getCharsetMap(const std::string& name) { return data[name]; }
+		}},
+	};
+	return data[name];
+}
