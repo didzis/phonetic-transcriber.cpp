@@ -235,7 +235,7 @@ if __name__ == '__main__':
     parser.add_argument('--rules', '-r', metavar='FILE', type=str, default='rules.json', help='input rules.json')
     parser.add_argument('--exceptdb', '-e', metavar='FILE', type=str, default='exceptions.json', help='input exceptions.json')
     parser.add_argument('--charsets', '-c', metavar='FILE', type=str, default='phonetic_converter_dataset.json', help='input phonetic_converter_dataset.json')
-    parser.add_argument('--input', '-i', metavar='FILE', type=str, default='python', help='base path where input data files ar found')
+    parser.add_argument('--input', '-i', metavar='FILE', type=str, default='python', help='base path where input data files are found')
     parser.add_argument('--output', '-o', metavar='FILE', type=str, default='data', help='path where C++ .cpp/.h files to generate')
 
     args = parser.parse_args()
